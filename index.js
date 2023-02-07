@@ -12,20 +12,16 @@ app.use(
 )
 app.use(express.json())
 
-//rotas da api 
+// ARQUIVO COM AS ROTAS DA API
 const personRoutes = require('./routes/personRoutes')
-
+//tudo que estiver com "/person" será direcionado para o arquivo personRoutes.js
 app.use('/person', personRoutes)
 
-//rota inicial / endpoint
-app.get('/', (req, res) => {
-    // mostrar req
-
-    res.json({message: 'oi express!'})
-
+// ENDPOINT da rota inicial
+app.get('/', (req, res) => {    
 })
 
-//entregar uma porta pro express disponibilizar o código
+
 mongoose
     .connect('mongodb+srv://mpenninck21:fUIQjga7gA5BjYhT@apicluster.weo6uhf.mongodb.net/bancodaapi?retryWrites=true&w=majority')
     .then(() => {
